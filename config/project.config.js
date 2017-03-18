@@ -48,13 +48,20 @@ const config = {
   // ----------------------------------
   server_host : ip.address(), // 使用字符串“localhost”,以防止暴露在本地网络
   server_port : process.env.PORT || 8888,
-
     // ----------------------------------
     // 代理地址
     // ----------------------------------
-    http_agent : 'http://localhost:8082',
-    http_prefix : '/AdminApi',
-    proxyTable:{},
+    server_proxy:[{
+        // proxyMiddleware(proxy.filter || context, options)
+        // filter:function () {},
+        context:'/AdminApi',
+        options:{
+            target: 'http://localhost:8082',
+            changeOrigin: true,
+        }
+    }],
+
+
   // ----------------------------------
   // 编译结构
   // ----------------------------------

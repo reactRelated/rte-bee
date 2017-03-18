@@ -30,16 +30,9 @@ compiler.plugin('compilation', function (compilation) {
 })
 
 // 义HTTP代理API的后端
-if(projectConfig.proxyTable){
-  var proxyTable = projectConfig.proxyTable
-  Object.keys(proxyTable).forEach(function (context) {
-    var options = proxyTable[context]
-    if (typeof options === 'string') {
-      options = { target: options }
-    }
-    app.use(proxyMiddleware(options.filter || context, options))
-  })
-}
+projectConfig.server_proxy.forEach(function (proxy) {
+    app.use(proxyMiddleware(proxy.filter || proxy.context, proxy.options))
+})
 
 // handle fallback for HTML5 history API
 // 处理历史后备HTML5 API
