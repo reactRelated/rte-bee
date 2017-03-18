@@ -20,8 +20,6 @@ var webpackConfig = merge(baseWebpackConfig, {
     devtool: projectConfig.productionSourceMap ? '#source-map' : false,
 
     plugins: [
-        // http://vuejs.github.io/vue-loader/en/workflow/production.html
-        new webpack.DefinePlugin(projectConfig.globals),
         //https://webpack.js.org/guides/migrating/#uglifyjsplugin-sourcemap
         new webpack.optimize.UglifyJsPlugin({
             compress: {

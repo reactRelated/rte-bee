@@ -44,5 +44,18 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin(projectConfig.globals)
+        /*new webpack.LoaderOptionsPlugin({
+            options: {
+                postcss: function(){
+                    return [
+                        require("autoprefixer")({
+                            browsers: ["> 1%",
+                                "last 10 versions",
+                                "not ie <= 8"]
+                        })
+                    ]
+                }
+            }
+        }),*/
     ]
 };
