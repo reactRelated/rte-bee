@@ -32,11 +32,20 @@ exports.cssLoaders = function (options) {
             sourceMap: options.sourceMap
         }
     }
+    var postCssLoader = {
+        loader: 'postcss-loader',
+        options: {
+            //生产环境启用压缩
+            minimize: projectConfig.globals.NODE_ENV === 'production',
+            sourceMap: options.sourceMap
+        }
+    }
 
     // generate loader string to be used with extract text plugin
     // 生成loader使用插件中提取文本字符串
     function generateLoaders(loader, loaderOptions) {
         var loaders = [cssLoader]
+        loaders.push("postcss-loader")
         if (loader) {
             loaders.push({
                 loader: loader + '-loader',
@@ -62,13 +71,13 @@ exports.cssLoaders = function (options) {
 
     // http://vuejs.github.io/vue-loader/en/configurations/extract-css.html
     return {
-        css: generateLoaders(),
-        postcss: generateLoaders(),
-        less: generateLoaders('less'),
-        sass: generateLoaders('sass', {indentedSyntax: true}),
-        scss: generateLoaders('sass'),
-        stylus: generateLoaders('stylus'),
-        styl: generateLoaders('stylus')
+        css: generateLoaders()
+        // postcss: generateLoaders(),
+        // less: generateLoaders('less'),
+        // sass: generateLoaders('sass', {indentedSyntax: true}),
+        // scss: generateLoaders('sass'),
+        // stylus: generateLoaders('stylus'),
+        // styl: generateLoaders('stylus')
     }
 }
 

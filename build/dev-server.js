@@ -11,7 +11,7 @@ const debug = require('debug')('app:build:dev-sever');
 
 var app = express();
 var compiler = webpack(webpackConfig);
-
+console.log(webpackConfig)
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
     publicPath: webpackConfig.output.publicPath,
     quiet: true

@@ -15,7 +15,7 @@ module.exports = {
         chunkFilename: utils.assetsPath(`js/[name].${projectConfig.compiler_hash_type}.js`)
     },
     resolve: {
-        extensions: ['', '.js', '.jsx', '.json']
+        extensions: [ '.js', '.jsx', '.json']
     },
     module: {
         rules: [
