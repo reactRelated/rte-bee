@@ -6,51 +6,42 @@ const webpack = require('webpack');
 
 
 module.exports = {
-  entry: {
-    app: projectConfig.paths.src('main.js')
-  },
-  /*output: {
-    path:projectConfig.paths.dist(),
-    filename: `[name].${projectConfig.compiler_hash_type}.js`,
-    publicPath: projectConfig.compiler_public_path
-  },*/
-  output: {
-      path: projectConfig.paths.dist(),
-      filename:utils.assetsPath(`js/[name].${projectConfig.compiler_hash_type}.js`) ,
-      chunkFilename:utils.assetsPath(`js/[name].${projectConfig.compiler_hash_type}.js`)
-  },
-  resolve: {
-    extensions: ['.js', '.vue', '.json'],
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js',
-      '@': projectConfig.paths.src(),
-    }
-  },
-  module: {
-    rules: [
-      {
-        test:  /\.(js|jsx)$/,
-        loader: 'babel-loader',
-        include: [projectConfig.paths.src()]
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
-        }
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
-        }
-      }
-    ]
-  },
+    entry: {
+        app: projectConfig.paths.src('main.js')
+    },
+    output: {
+        path: projectConfig.paths.dist(),
+        filename: utils.assetsPath(`js/[name].${projectConfig.compiler_hash_type}.js`),
+        chunkFilename: utils.assetsPath(`js/[name].${projectConfig.compiler_hash_type}.js`)
+    },
+    resolve: {
+        extensions : ['', '.js', '.jsx', '.json']
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                loader: 'babel-loader',
+                include: [projectConfig.paths.src()]
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: utils.assetsPath('img/[name].[hash:7].[ext]')
+                }
+            },
+            {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+                }
+            }
+        ]
+    },
     plugins: [
         new webpack.DefinePlugin(projectConfig.globals)
     ]
