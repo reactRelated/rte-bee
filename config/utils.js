@@ -10,9 +10,9 @@ debug(`检查 projectConfig.env.NODE_ENV:${projectConfig.globals.NODE_ENV}`)
  * @returns {string|*}
  */
 exports.assetsPath = function (_path) {
-  /* var assetsSubDirectory = projectConfig.globals.NODE_ENV === 'production'
-   ? projectConfig.compiler_static_path
-   : projectConfig.compiler_static_path*/
+    /* var assetsSubDirectory = projectConfig.globals.NODE_ENV === 'production'
+     ? projectConfig.compiler_static_path
+     : projectConfig.compiler_static_path*/
 
     return path.posix.join(projectConfig.compiler_static_path, _path)
 }
@@ -35,7 +35,7 @@ exports.cssLoaders = function (options) {
 
     // generate loader string to be used with extract text plugin
     // 生成loader使用插件中提取文本字符串
-    function generateLoaders (loader, loaderOptions) {
+    function generateLoaders(loader, loaderOptions) {
         var loaders = [cssLoader]
         if (loader) {
             loaders.push({
@@ -65,7 +65,7 @@ exports.cssLoaders = function (options) {
         css: generateLoaders(),
         postcss: generateLoaders(),
         less: generateLoaders('less'),
-        sass: generateLoaders('sass', { indentedSyntax: true }),
+        sass: generateLoaders('sass', {indentedSyntax: true}),
         scss: generateLoaders('sass'),
         stylus: generateLoaders('stylus'),
         styl: generateLoaders('stylus')
@@ -74,7 +74,7 @@ exports.cssLoaders = function (options) {
 
 // 为独立的样式文件生成加载器(.vue以外的)
 exports.styleLoaders = function (options) {
-    var  output = []
+    var output = []
     var loaders = exports.cssLoaders(options)
     for (var extension in loaders) {
         //通过key 匹配 注入
