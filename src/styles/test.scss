@@ -1,5 +1,4 @@
 @import 'base.scss';
-
 .aaa{
   background-color: #e8e8e8;
   height: 600px;
@@ -8,6 +7,7 @@
   box-shadow: 0 0 3px 5px rgba(222, 222, 222, .3);
 
   .bbb{
-    width: $a;
+    width: 100px;
+    height: $a;
   }
 }

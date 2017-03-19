@@ -2,6 +2,8 @@ import React from 'react'
 // import Header from '../../components/Header'
 import MainLayout from './MainLayout'
 import '../../styles/core.css';
+import '../../styles/test.scss';
+
 export const CoreLayout= ({ children }) => {
 
     let loct =children.props.location.pathname;
