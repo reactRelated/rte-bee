@@ -2,19 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import createStore from './store/createStore'
 import AppContainer from './containers/AppContainer'
-import 'antd/dist/antd.css';
 
 // ========================================================
 // Store  实例化
 // ========================================================
 let initialState = window.___INITIAL_STATE__ || {}
 //默认树
-/*let defaultState ={
-    layout:{
-        layoutResize:document.documentElement.clientHeight
-    }
-};
-initialState =  Object.assign({},initialState,defaultState);*/
+
 
 const store = createStore(initialState)
 // ========================================================

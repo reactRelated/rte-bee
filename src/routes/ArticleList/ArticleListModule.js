@@ -21,7 +21,7 @@ export function  queryListPost(queryList={}) {
 
 export function queryListArticle(body={
     title:"",
-    classify:"",
+    classifyname:"",
     author:"",
     updatetime:""
 }){

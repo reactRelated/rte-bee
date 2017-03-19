@@ -13,7 +13,7 @@ const columns = [{
 },{
     title: '分类',
     placeholder: '分类',
-    dataIndex: 'classify',
+    dataIndex: 'classifyname',
 }, {
     title: '作者',
     placeholder: '作者',
@@ -134,7 +134,7 @@ class QueryListForm extends Component {
             queryListData.push({
                 key:d.article_id,
                 title:d.title,
-                classify:d.classify,
+                classifyname:d.classifyname,
                 author:d.author,
                 updatetime:d.updatetime
             })
